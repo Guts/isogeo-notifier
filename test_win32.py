@@ -225,7 +225,7 @@ def non_string_iterable(obj):
 if __name__ == '__main__':
     import itertools, glob
     
-    icons = itertools.cycle(glob.glob('*.ico'))
+    icons = itertools.cycle(glob.glob('img\*.ico'))
     hover_text = "SysTrayIcon.py Demo"
     def hello(sysTrayIcon): print "Hello World."
     def simon(sysTrayIcon): print "Hello Simon."

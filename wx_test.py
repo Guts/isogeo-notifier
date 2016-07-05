@@ -1,7 +1,7 @@
 import wx
 
 TRAY_TOOLTIP = 'Isogeo'
-TRAY_ICON = 'icon_isogeo_trans.png'
+TRAY_ICON = 'img\icon_isogeo_trans.png'
 
 
 def create_menu_item(menu, label, func):
