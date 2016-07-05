@@ -12,12 +12,15 @@ Install and configure the scheduled task.
 Then, you'll receive notifications like this:
 
 When the amount of data shared has raised since last execution:
+
 ![Notification sample - More data since last execution](img/capture_example_NewData.png)
 
 When the amount of data shared has reduced since last execution:
+
 ![Notification sample - Less data since last execution](img/capture_example_DataDeleted.png)
 
 When the amount of data shared has not changed since last execution:
+
 ![Notification sample - Any change](img/capture_example_NothingChanged.png)
 
 ## Scheduled task
@@ -26,7 +29,7 @@ When the amount of data shared has not changed since last execution:
 
 It's all on you. For example, to get a daily notification:
 
-![Scheduled task - Trigger settings](img/task_trigger_example.png)
+![Scheduled task - Trigger settings](img/task_trigger_example.PNG)
 
 ### Action
 
@@ -49,7 +52,7 @@ Launch in :
 ```
 
 Example :
-![Scheduled task - Action settings](img/task_action_settings.png)
+![Scheduled task - Action settings](img/task_action_settings.PNG)
 
 
 ## Requirements
