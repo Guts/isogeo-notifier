@@ -15,7 +15,7 @@
 isogeo-pysdk
 
 # pywin32
-.\lib\pywin32-220.1-cp27-cp27m-win_amd64.whl
+pywin32
 
 # wx
 # .\lib\wxPython_common-3.0.2.0-py2-none-any.whl
