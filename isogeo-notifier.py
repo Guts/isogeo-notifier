@@ -1,18 +1,19 @@
-# -*- coding: UTF-8 -*-
 #!/usr/bin/env python
+# -*- coding: UTF-8 -*-
 from __future__ import (absolute_import, print_function, unicode_literals)
-# ------------------------------------------------------------------------------
-# Name:         Isogeo sample - Latest modified datasets
-# Purpose:      Get the latest modified datasets from an Isogeo share, using
-#               the Isogeo API Python minimalist SDK.
-# Author:       Julien Moura (@geojulien)
-#
-# Python:       2.7.x
-# Created:      14/02/2016
-# Updated:      18/02/2016
-# ------------------------------------------------------------------------------
 
-# ##############################################################################
+"""
+    __author__ = "GeoJulien"
+    __copyright__ = "Copyright 2016, Isogeo"
+    __credits__ = ["Isogeo", "GeoJulien"]
+    __license__ = "GPL3"
+    __version__ = "1.0.1"
+    __maintainer__ = "Julien Moura"
+    __email__ = "projects+notifier@isogeo.com"
+    __status__ = "Beta"
+"""
+
+# ############################################################################
 # ########## Libraries #############
 # ##################################
 
@@ -79,16 +80,29 @@ latest_data_modified = isogeo.search(token,
 
 # parsing the previous date
 last_exe = dtparse(last_exe).strftime("%a %d %B %Y (%H:%M)")
+last_exe = last_exe.decode("Latin1")
 
 # comparing total of metadats shared since last time
 now_total = latest_data_modified.get('total')
 
 if now_total > last_total:
-    notif.balloon_tip("Isogeo - Total partage", u"{} nouvelles données\ndepuis le {}".format(now_total - last_total, last_exe))
+    notif.balloon_tip("Isogeo - Total partage",
+                      "{} données ajoutées\ndepuis le {}"
+                      .format(now_total - last_total, last_exe),
+                      icon_path=r"img/favicon.ico",
+                      duration=3)
 elif now_total < last_total:
-    notif.balloon_tip("Isogeo - Total partage", u"{} données supprimées\ndepuis le {}".format(last_total - now_total, last_exe))
+    notif.balloon_tip("Isogeo - Total partage",
+                      "{} données retirées\ndepuis le {}"
+                      .format(last_total - now_total, last_exe),
+                      icon_path=r"img/favicon.ico",
+                      duration=3)
 elif now_total == last_total:
-    notif.balloon_tip("Isogeo - Total partage", u"Aucune nouvelle donnée \ndepuis le {}".format(last_exe))
+    notif.balloon_tip("Isogeo - Total partage",
+                      "Pas de changement \ndepuis le {}"
+                      .format(last_exe),
+                      icon_path=r"img/favicon.ico",
+                      duration=3)
 else:
     pass
 
@@ -105,8 +119,6 @@ else:
 #                  dtparse(md.get("modified")[:19]).strftime("%a %d %B %Y"),
 #                  evt_description.encode("utf8")))
 #     notif.balloon_tip('Isogeo - Dernières données modifiée', title)
-
-
 
 # ------------ SAVE METRICS ----------------------------
 config.set('metrics', 'last_exe', str(datetime.now()))
