@@ -21,7 +21,7 @@ from win32gui import CreateWindow, DestroyWindow, LoadIcon, LoadImage,\
                      RegisterClass, Shell_NotifyIcon, UpdateWindow, WNDCLASS
 
 # ############################################################################
-# ######### Main program ###########
+# ########### Classes ##############
 # ##################################
 
 
