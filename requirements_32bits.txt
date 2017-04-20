@@ -19,7 +19,8 @@ win10toast
 
 # pywin32
 pywin32
+# .\lib\pywin32-220.1-cp27-cp27m-win32.whl
 
 # wx
-# .\lib\wxPython_common-3.0.2.0-py2-none-any.whl
+# .\lib\wxPython-3.0.2.0-cp27-none-win32.whl
 # .\lib\wxPython-3.0.2.0-cp27-none-win_amd64.whl

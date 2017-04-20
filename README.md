@@ -38,7 +38,7 @@ If you have followed the install recomendations here is the help:
 
 Program/script:
 ```
-{absolute_path_to_the_folder}\virtenv\Scripts\python.exe
+{absolute_path_to_the_folder}\virtenv\Scripts\pythonw.exe
 ```
 
 Arguments:
