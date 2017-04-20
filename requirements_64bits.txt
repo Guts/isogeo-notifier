@@ -14,6 +14,9 @@
 # Isogeo
 isogeo-pysdk
 
+# win10 toaster
+win10toast
+
 # pywin32
 .\lib\pywin32-220.1-cp27-cp27m-win_amd64.whl
 

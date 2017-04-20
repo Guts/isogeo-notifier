@@ -7,7 +7,7 @@ from __future__ import (absolute_import, print_function, unicode_literals)
     __copyright__ = "Copyright 2016, Isogeo"
     __credits__ = ["Isogeo", "GeoJulien"]
     __license__ = "GPL3"
-    __version__ = "1.0.1"
+    __version__ = "1.1.0"
     __maintainer__ = "Julien Moura"
     __email__ = "projects+notifier@isogeo.com"
     __status__ = "Beta"
@@ -24,12 +24,8 @@ from os import path
 
 # 3rd party library
 from dateutil.parser import parse as dtparse
-
-# Isogeo
 from isogeo_pysdk import Isogeo
-
-# custom
-from modules.win10_notif import WindowsBalloonTip
+from win10toast import ToastNotifier
 
 # ############################################################################
 # ######### Main program ###########
@@ -68,7 +64,7 @@ isogeo = Isogeo(client_id=share_id,
 token = isogeo.connect()
 
 # Windows 10 notifications class
-notif = WindowsBalloonTip()
+notif = ToastNotifier()
 
 # ------------ REAL START ----------------------------
 latest_data_modified = isogeo.search(token,
@@ -86,23 +82,23 @@ last_exe = last_exe.decode("Latin1")
 now_total = latest_data_modified.get('total')
 
 if now_total > last_total:
-    notif.balloon_tip("Isogeo - Total partage",
-                      "{} données ajoutées\ndepuis le {}"
-                      .format(now_total - last_total, last_exe),
-                      icon_path=r"img/favicon.ico",
-                      duration=3)
+    notif.show_toast("Isogeo - Total partage",
+                     "{} données ajoutées\ndepuis le {}"
+                     .format(now_total - last_total, last_exe),
+                     icon_path=r"img/favicon.ico",
+                     duration=3)
 elif now_total < last_total:
-    notif.balloon_tip("Isogeo - Total partage",
-                      "{} données retirées\ndepuis le {}"
-                      .format(last_total - now_total, last_exe),
-                      icon_path=r"img/favicon.ico",
-                      duration=3)
+    notif.show_toast("Isogeo - Total partage",
+                     "{} données retirées\ndepuis le {}"
+                     .format(last_total - now_total, last_exe),
+                     icon_path=r"img/favicon.ico",
+                     duration=3)
 elif now_total == last_total:
-    notif.balloon_tip("Isogeo - Total partage",
-                      "Pas de changement \ndepuis le {}"
-                      .format(last_exe),
-                      icon_path=r"img/favicon.ico",
-                      duration=3)
+    notif.show_toast("Isogeo - Total partage",
+                     "Pas de changement \ndepuis le {}"
+                     .format(last_exe),
+                     icon_path=r"img/favicon.ico",
+                     duration=3)
 else:
     pass
 
