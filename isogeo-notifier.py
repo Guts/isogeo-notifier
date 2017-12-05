@@ -86,19 +86,19 @@ if now_total > last_total:
                      "{} données ajoutées\ndepuis le {}"
                      .format(now_total - last_total, last_exe),
                      icon_path=r"img/favicon.ico",
-                     duration=3)
+                     duration=10)
 elif now_total < last_total:
     notif.show_toast("Isogeo - Total partage",
                      "{} données retirées\ndepuis le {}"
                      .format(last_total - now_total, last_exe),
                      icon_path=r"img/favicon.ico",
-                     duration=3)
+                     duration=10)
 elif now_total == last_total:
     notif.show_toast("Isogeo - Total partage",
                      "Pas de changement \ndepuis le {}"
                      .format(last_exe),
                      icon_path=r"img/favicon.ico",
-                     duration=3)
+                     duration=10)
 else:
     pass
 
