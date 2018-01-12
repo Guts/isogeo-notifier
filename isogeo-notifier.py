@@ -18,7 +18,7 @@ from __future__ import (absolute_import, print_function, unicode_literals)
 # ##################################
 
 # Standard library
-import ConfigParser     # to manage options.ini
+import configparser     # to manage options.ini
 from datetime import datetime
 from os import path
 
@@ -32,7 +32,7 @@ from win10toast import ToastNotifier
 # ##################################
 
 # application parameters stored into an ini file
-settings_file = r"isogeo_params.ini"
+settings_file = r"settings.ini"
 
 # testing ini file
 if not path.isfile(path.realpath(settings_file)):
@@ -46,7 +46,7 @@ else:
     pass
 
 # reading ini file
-config = ConfigParser.SafeConfigParser()
+config = configparser.SafeConfigParser()
 config.read(settings_file)
 
 share_id = config.get('auth', 'app_id')
@@ -76,7 +76,7 @@ latest_data_modified = isogeo.search(token,
 
 # parsing the previous date
 last_exe = dtparse(last_exe).strftime("%a %d %B %Y (%H:%M)")
-last_exe = last_exe.decode("Latin1")
+# last_exe = last_exe.decode("Latin1")
 
 # comparing total of metadats shared since last time
 now_total = latest_data_modified.get('total')
@@ -121,7 +121,7 @@ config.set('metrics', 'last_exe', str(datetime.now()))
 config.set('metrics', 'last_total', str(latest_data_modified.get("total")))
 
 # Writing our configuration file to 'example.ini'
-with open('isogeo_params.ini', 'wb') as configfile:
+with open('settings.ini', 'w') as configfile:
     config.write(configfile)
 
-del(notif)
+# del(notif)
